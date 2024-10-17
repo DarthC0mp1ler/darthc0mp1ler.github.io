@@ -1,0 +1,214 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    color:white;
+    /* background-color: rgb(18, 21, 46); */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    scroll-behavior:smooth
+}
+
+
+/*font-family: "Staatliches", sans-serif;*/
+
+header{
+    height:10vh;
+    
+    padding:0;
+    margin:0;
+}
+
+header >nav{
+    
+    display:flex;
+    justify-content:space-between;
+}
+
+.header-column{
+    height: 10vh;
+    display:flex;
+    gap:20px;
+    align-items: center;
+}
+
+.left-col{
+    margin-left:10%;
+    font-size:200%;
+}
+
+.right-col{
+    margin-right:10%;
+}
+
+.home-link {
+    font-family: "Staatliches", sans-serif;
+    text-decoration:none;
+    color:white;
+    transition-duration: 0.2s;
+}
+
+.home-link:hover{
+    color:grey;
+    transition-duration: 0.2s;
+}
+
+.link {
+    font-family: "Staatliches", sans-serif;
+    text-decoration:none;
+    color:aqua;
+    transition-duration: 0.2s;
+}
+
+.link:hover{
+    color:rgb(0, 148, 148);
+    transition-duration: 0.2s;
+}
+
+.simple-link{
+    text-decoration:none;
+    color:white;
+    transition-duration: 0.2s;
+}
+
+.black-text{
+    color:black;
+    text-decoration: underline;
+}
+
+.simple-link:hover{
+    color:grey;
+    transition-duration: 0.2s;
+}
+
+.row{
+    display:flex;
+    height: 100vh;
+    
+    /* width:100vw; */
+    gap: 5%;
+
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(25, 31, 84); 
+}
+
+.light{
+    background-color: aliceblue;
+    color:black;
+}
+
+.first{
+    height: 90vh;
+    background-color: rgb(18, 21, 46,0); 
+    flex-direction: column;
+}
+.background { 
+    position: absolute; 
+    height: 100vh; 
+    width: 100%; 
+    /* margin: -8px 0 0 -6px; */
+    background-image: url("img/normandy8.png"); 
+    background-size: cover; 
+    background-position: center; 
+    filter: brightness(50%);
+    z-index: -1; 
+} 
+
+
+.column{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-wrap: wrap;
+    width:40%;
+    margin:0;
+    padding:5%;
+
+}
+
+.block{
+    background-color: rgba(0, 0, 0, 0.233);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.block > h3{
+    margin-top:0px;
+}
+
+.wide-col{
+    width:60%;
+}
+
+.column > img{
+    width:95%;
+    height:95%;
+}
+
+.column >iframe{
+    width:45vw;
+    height:50vh;
+}
+.no-padding{
+    padding:0;
+    width:50%;
+    height:100%;
+}
+
+.img-col{
+    padding:0;
+}
+
+.text-col{
+    font-size:150%;
+}
+.text-col > h1{
+    font-size: 2em;
+}
+
+
+
+.middle-text{
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    gap:20%;
+    background-color: black;
+    padding-left:10%;
+    padding-right:10%;
+    padding-top:5%;
+    padding-bottom:5%;
+    margin:0;
+}
+
+.scroll-button{
+    border: none;
+    color:white;
+    background-color: rgb(0,0,0,0.5);
+    font-family: "Staatliches", sans-serif;
+    border-radius: 10px;
+    padding:50px;
+    padding-top:20px;
+    padding-bottom:20px;
+    text-align: center;
+    text-wrap: none;
+
+    /* margin-left: 30%;
+    margin-right:30%; */
+    font-size:90%;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.scroll-button:hover{
+    background-color: rgb(0,0,0,1);
+    border-radius: 40px;
+}
+
+.skills{
+    width:100%;
+}
