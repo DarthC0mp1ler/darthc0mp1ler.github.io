@@ -8,7 +8,7 @@ progress {
 }
 
 progress::-webkit-progress-bar {
-    background-color: grey;
+    background-color: rgba(189, 189, 189, 0);
 }
 
 progress::-webkit-progress-value {
