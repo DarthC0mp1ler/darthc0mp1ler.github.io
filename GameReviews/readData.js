@@ -20,6 +20,8 @@ function getLinks(path) {
                     .split('review_')[1]
                     .split('.xml')[0]
                     .replaceAll('_', ' ')
+                    .replaceAll('%20', ' ')
+                    .replaceAll('%26', '&')
                     .replaceAll(/\s+/g, ' ');
                 a.classList.add('home-link');
                 element.appendChild(a);
@@ -32,7 +34,9 @@ function getLinks(path) {
 
 function loadReviewPage() {
     const params = new URLSearchParams(location.search);
-    const file = params.get('file');
+    var file = params.get('file');
+    file = file.replaceAll('%20',' ')
+        .replaceAll('%26','&');
     console.log(file)
     fetch(`../${encodeURIComponent(file)}`)
         .then(res => res.ok ? res.text() : Promise.reject('File not found'))
@@ -55,29 +59,29 @@ function loadReviewPage() {
                 .join("\n");
 
             var container = document.getElementById('bg-image')
-            container.style.backgroundImage = container.style.backgroundImage.replace('@image', image);
+            container.style.backgroundImage = container.style.backgroundImage.replaceAll('@image', image);
 
             container = document.getElementById('title');
-            container.innerHTML = container.innerHTML.replace('@title', title)
+            container.innerHTML = container.innerHTML.replaceAll('@title', title)
 
             container = document.getElementById('rating');
-            container.innerHTML = container.innerHTML.replace('@rating', rating)
+            container.innerHTML = container.innerHTML.replaceAll('@rating', rating)
 
             container = document.getElementById('genre');
-            container.innerHTML = container.innerHTML.replace('@genre', genre)
+            container.innerHTML = container.innerHTML.replaceAll('@genre', genre)
 
             container = document.getElementById('releaseDate');
-            container.innerHTML = container.innerHTML.replace('@releaseDate', releaseData)
+            container.innerHTML = container.innerHTML.replaceAll('@releaseDate', releaseData)
 
             container = document.getElementById('summary');
-            container.innerHTML = container.innerHTML.replace('@summary', summary)
+            container.innerHTML = container.innerHTML.replaceAll('@summary', summary)
 
             container = document.getElementById('pros-cons');
-            container.innerHTML = container.innerHTML.replace('@pros', pros)
-            container.innerHTML = container.innerHTML.replace('@cons', cons)
+            container.innerHTML = container.innerHTML.replaceAll('@pros', pros)
+            container.innerHTML = container.innerHTML.replaceAll('@cons', cons)
 
             container = document.getElementById('opinion');
-            container.innerHTML = container.innerHTML.replace('@po', po)
+            container.innerHTML = container.innerHTML.replaceAll('@po', po)
         })
 }
 
