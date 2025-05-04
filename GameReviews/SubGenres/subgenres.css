@@ -1,0 +1,138 @@
+
+body{
+    font-family:"Roboto Condensed", sans-serif;;
+}
+
+.sub-genres-panel {
+    width: 100%;
+    background-color: black;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-genre {
+    height: 30vh;
+    margin: 0.5%;
+    display: flex;
+    align-items: center;
+    animation: slide-in-bottom 1s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition-duration: 0.5s;
+}
+
+@keyframes slide-in-left{
+    from{
+        opacity: 0;
+        
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.sub-genre:nth-child(1) { animation-delay: 0.2s; }
+.sub-genre:nth-child(2) { animation-delay: 0.4s; }
+.sub-genre:nth-child(3) { animation-delay: 0.6s; }
+.sub-genre:nth-child(4) { animation-delay: 0.8s; }
+.sub-genre:nth-child(5) { animation-delay: 1s; }
+.sub-genre:nth-child(6) { animation-delay: 1.2s; }
+
+.sub-genre-heading-container {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 20%,
+            rgba(0, 0, 0, 0) 80%,
+            rgba(0, 0, 0, 0) 100%);
+    transition-duration: 0.5s;
+}
+
+
+
+.sub-genre-h1 {
+    padding-left: 5%;
+    transition-duration: 0.5s;
+    font-family: "Staatliches", sans-serif;
+}
+
+.sub-genre-p {
+    width: 30vw;
+    font-size: 120%;
+    position: absolute;
+    left: -50%;
+    opacity: 0;
+    transition-duration: 0.5s;
+}
+
+.sub-genre-heading-container:hover .sub-genre-h1 {
+    padding-left: 80%;
+}
+
+.sub-genre-heading-container:hover .sub-genre-p {
+    left: 5%;
+    opacity: 1;
+}
+
+.titles{
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titles > a{
+    width: 40%;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+
+.RPG {
+    background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202308/1519/95cce955dc59d04e2ea5ab624a823ace14e9c5f7e24dfb8f.png');
+    background-position: 0 -100px;
+    background-size: 100% 350%;
+}
+
+.RPG:hover{
+    background-position: 0 -110px;
+}
+
+.ARPG {
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/ss_2f649b68d579bf87011487d29bc4ccbfdd97d34f.jpg?t=1734434803');
+    background-position: 0 -300px;
+    background-size: 100% 350%;
+}
+
+.ARPG:hover{
+    background-position: 0 -320px;
+}
+
+.DC {
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1940340/ss_bc4c7aec5704ed4108a181ec9a790c3fea4a9f12.jpg?t=1746117927');
+    background-position: center -150px;
+}
+.DC:hover{
+    background-position: center -160px;
+}
+
+.MMORPG {
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3474740/4a45c3de5e9fb455a2a3c8e9070f5539376289be/ss_4a45c3de5e9fb455a2a3c8e9070f5539376289be.jpg?t=1744737786');
+    background-position: center -10px;
+}
+.MMORPG:hover{
+    background-position: center -30px;
+}

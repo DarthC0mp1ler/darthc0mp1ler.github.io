@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="reviews.css">
+    <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="footer.css">
+    <title>@title review</title>
+    <script src="readData.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            loadReviewPage()
+        });
+    </script>
+</head>
+
+<body id="bg-image" class="bg-image-cover"
+    style="background-image: url('@image');">
+    <header id="hd">
+        <nav>
+            <div class="header-column main-header-column">
+                <a class="home-link" href="reviewMain.html">Game Reviews</a>
+            </div>
+            <div class="header-column links-header-column">
+                <div class="header-nav-links">
+                    <a class="home-link" href="reviewMain.html">Genres</a>
+                    <!-- <a class="home-link" href="reviewIndex.html">Top 100</a> -->
+                </div>
+                <div class="back-header-column">
+                    <a class="home-link" href="../index.html">DarthC0mp1ler</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div style="height: 30vh;"></div>
+    <div class="reviews-width-row">
+        <div class="reviews-flex-container container-color">
+            <h1 id="title" class="main-header center">@title</h1>
+            <h1 id="rating" class="main-header center" style="margin-top: 0;">@rating</h1>
+            <p id="genre"><b>Genre:</b> @genre</p>
+            <p id="releaseDate"><b>Release date:</b> @releaseDate</p>
+            <div id="summary">
+                <b>Summary:</b>
+                @summary
+            </div>
+        </div>
+        <div class="reviews-flex-container container-color">
+            <div id="pros-cons">
+                <b>Pros</b>
+                <ul>
+                    @pros
+                </ul>
+                <b>Cons</b>
+                <ul>
+                    @cons
+                </ul>
+            </div>
+        </div>
+        <div class="reviews-flex-container container-color">
+            <div id="opinion">
+                <b>Personal Opinion:</b>
+                @po
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-column">
+            <h2>Deigned by DarthC0mp1ler</h2>
+            <a class="home-link" href="reviewMain.html">Game Reviews</a>
+            <a class="home-link" href="../index.html">DarthC0mp1ler</a>
+        </div>
+        <div class="footer-column">
+            <h2>Navigation</h2>
+            <a class="home-link" href="reviewMain.html">Genres</a>
+            <!-- <a class="home-link" href="reviewIndex.html">Top 100</a> -->
+        </div>
+    </footer>
+</body>
+
+</html>
