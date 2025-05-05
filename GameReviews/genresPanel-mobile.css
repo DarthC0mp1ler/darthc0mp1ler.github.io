@@ -1,0 +1,164 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap'); */
+
+
+body{
+    background-color: black;
+}
+
+.genres-panel{
+    width:90%;
+    /* height: 90vh; */
+    display:flex;
+    flex-direction: column;
+    /* gap:2%; */
+    background-color: black;
+    margin-left:5%;
+    margin-right:5%;
+    
+}
+
+@keyframes slide-in-bottom{
+    from{
+        opacity: 0;
+        
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.genre:nth-child(1) { animation-delay: 0.2s; }
+.genre:nth-child(2) { animation-delay: 0.4s; }
+.genre:nth-child(3) { animation-delay: 0.6s; }
+.genre:nth-child(4) { animation-delay: 0.8s; }
+.genre:nth-child(5) { animation-delay: 1s; }
+.genre:nth-child(6) { animation-delay: 1.2s; }
+
+.genre{
+    width:100%;
+    height:25vh;
+    margin:0.5%;
+    background-position: center -10px;
+    background-size: auto 110% ;
+    background-repeat: no-repeat;
+    transition-duration: 0.5s;
+    animation: slide-in-bottom 1s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+    cursor:pointer;
+}
+
+.genre:hover{
+    background-position: center 0px;
+}
+
+.heading-container{
+    width:100%;
+    height:100%;
+    display: flex;
+    overflow-y: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,     
+        rgba(0, 0, 0, 0) 50%,    
+        rgba(0, 0, 0, 1) 100%    
+      );
+    transition-duration: 0.5s;  
+}
+
+.genre-h1{
+    padding-bottom:0px;
+    transition-duration: 0.5s;
+    font-size:5vw;
+}
+.genre-p{
+    font-size: 3vw;
+    /* position: absolute; */
+    /* bottom: -100%; */
+    margin:5%;
+    text-align: justify;
+    /* opacity: 0; */
+    transition-duration: 0.5s;
+}
+
+.heading-container:hover .genre-h1{
+      /* padding-bottom:40vh; */
+}
+
+.heading-container:hover .genre-p {
+    /* bottom: 0%; */
+    /* opacity: 1; */
+}
+
+.filter{
+    backdrop-filter: blur(2px) grayscale(100%) brightness(50%);
+    transition-duration: 0.5s;
+}
+
+.filter:hover{
+    backdrop-filter: blur(5px) grayscale(0%);
+}
+
+.genre-ac{
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/870780/ss_c038bb7b20d72ba5d33cc95f7235aefa0b84a706.jpg?t=1743425935');
+    background-position: center -10px;
+}
+
+.genre-ac:hover{
+    background-position: center 0px;
+}
+
+.genre-acad{
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/814380/ss_0f7b0f8ed9ffc49aba26f9328caa9a1d59ad60f0.jpg?t=1726158438');
+    background-position: 30% -10px;
+}
+.genre-acad:hover{
+    background-position: 30% 0px;
+}
+
+.genre-ad{
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/973760/ss_4680bc9ec2acc851140a073c06749aa7e3d64329.jpg?t=1721642654');
+    background-position: 57% -10px;
+}
+.genre-ad:hover{
+    background-position: 57% 0px;
+}
+
+.genre-rpg{
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/ss_943bf6fe62352757d9070c1d33e50b92fe8539f1.jpg?t=1744748041');
+    background-position: 5% -10px;
+}
+.genre-rpg:hover{
+    background-position: 5% 0px;
+}
+.genre-sim{
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1363080/ss_88f8099e40707bb98aeade0f1ede358a7f8f5de0.jpg?t=1745312001');
+    background-position: center -10px;
+}
+
+.genre-sim:hover{
+
+}
+.genre-str{
+    background-image: url('https://images.ctfassets.net/u73tyf0fa8v1/ILvL75mZNtImSfKerDXnp/d896e2442d635c3265f977d37f09f44a/Web_Header_2540x13002.jpg?w=3840&q=75');
+    background-position: center -10px;
+}
+.genre-str:hover{
+
+}
+
+.on-top{
+    text-align: center;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size:150%;
+}
+
+.on-top>h1{
+    /* backdrop-filter: blur(5px); */
+    text-decoration: none;
+}

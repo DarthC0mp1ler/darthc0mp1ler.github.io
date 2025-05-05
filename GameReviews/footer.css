@@ -1,0 +1,14 @@
+footer{
+    background-color: black;
+    height:10vh;
+    display: flex;
+    justify-content: space-between;
+    padding:5%;
+}
+
+.footer-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:5%;
+}
