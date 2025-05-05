@@ -50,15 +50,15 @@ function getReviews(path) {
             const container = document.getElementById('titles');
 
             for (const review of reviewElements) {
-                let file = folderPath.replaceAll('../','') +review.querySelector('file')?.textContent.trim();
+                let file = folderPath.replaceAll('../', '') + review.querySelector('file')?.textContent.trim();
                 let title = review.querySelector('title')?.textContent.trim();
                 let image = review.querySelector('image')?.textContent.trim();
 
                 const div = document.createElement('div');
                 div.className = 'title';
-                div.onclick = function() {
+                div.onclick = function () {
                     location.href = `../../reviewTemplate.html?file=${encodeURIComponent(file)}`;
-                  };
+                };
                 div.style.backgroundImage = `url('${image}')`;
                 div.innerHTML = `
                     <div class="title-gradient">
@@ -75,8 +75,6 @@ function getReviews(path) {
 function loadReviewPage() {
     const params = new URLSearchParams(location.search);
     var file = params.get('file');
-    // file = file.replaceAll('%20', ' ')
-    //     .replaceAll('%26', '&');
     console.log("reading file:")
     console.log(file)
     fetch(`${file}`)
@@ -129,7 +127,11 @@ function loadReviewPage() {
             container.innerHTML = container.innerHTML.replaceAll('@cons', cons)
 
             container = document.getElementById('opinion');
-            container.innerHTML = container.innerHTML.replaceAll('@po', po)
+            if (!po.trim()) {
+                container.style.display = "none";
+            } else {
+                container.innerHTML = container.innerHTML.replaceAll('@po', po);
+            }
         })
 }
 

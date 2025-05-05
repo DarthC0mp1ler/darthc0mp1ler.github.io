@@ -15,8 +15,7 @@
     </script>
 </head>
 
-<body id="bg-image" class="bg-image-cover"
-    style="background-image: url('@image');">
+<body id="bg-image" class="bg-image-cover" style="background-image: url('@image'); background-position: center;">
     <header id="hd">
         <nav>
             <div class="header-column main-header-column">
@@ -34,20 +33,20 @@
 
         </nav>
     </header>
-    <div style="height: 30vh;"></div>
-    <div class="reviews-width-row">
-        <div class="reviews-flex-container container-color">
-            <h1 id="title" class="main-header center">@title</h1>
-            <h1 id="rating" class="main-header center" style="margin-top: 0;">@rating</h1>
+    <!-- <div style="height: 30vh;"></div> -->
+    <div class="reviews-width-row container-color-gradient-left">
+        <div class="reviews-flex-container half-width" >
+            <div class="flex">
+                <h1 id="title" class="main-header center">@title</h1>
+                <h1 id="rating" class="main-header center" style="color:goldenrod">@rating</h1>
+            </div>
+
             <p id="genre"><b>Genre:</b> @genre</p>
             <p id="studio"><b>Studio:</b> @studio</p>
             <p id="releaseDate"><b>Release date:</b> @releaseDate</p>
-            <div id="summary">
-                <b>Summary:</b>
-                @summary
-            </div>
-        </div>
-        <div class="reviews-flex-container container-color">
+
+        <!-- </div>
+        <div class="reviews-flex-container"> -->
             <div id="pros-cons">
                 <b>Pros</b>
                 <ul>
@@ -59,7 +58,17 @@
                 </ul>
             </div>
         </div>
-        <div class="reviews-flex-container container-color">
+        <div class="reviews-flex-container half-width">
+            <div id="summary">
+                <b>Summary:</b>
+                @summary
+            </div>
+        </div>
+
+        <div style="height: 2vh;"></div>
+        
+        <div class="reviews-flex-container full-width">
+
             <div id="opinion">
                 <b>Personal Opinion:</b>
                 @po
