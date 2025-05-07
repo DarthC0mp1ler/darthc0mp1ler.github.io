@@ -4,6 +4,80 @@ function toSubGenre(name, path, fileurl) {
     window.location.href = url;
 }
 
+
+function loadReviewPage() {
+    const params = new URLSearchParams(location.search);
+    var file = params.get('file');
+    console.log("reading file:")
+    console.log(file)
+    fetch(`${file}`)
+        .then(res => {
+            if(res.ok){
+                return res.text();
+            }else{
+                console.log("error in loading file");
+            }
+            //res.ok ? res.text() : Promise.reject('File not found')
+        })
+        .then(xmlText => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+            var image = xmlDoc.querySelector('image')?.textContent;
+            var title = xmlDoc.querySelector('title')?.textContent;
+            var rating = xmlDoc.querySelector('rating')?.textContent;
+            var genre = xmlDoc.querySelector('genre')?.textContent;
+            var studio = xmlDoc.querySelector('studio')?.textContent;
+            var releaseData = xmlDoc.querySelector('releaseDate')?.textContent;
+            var summary = xmlDoc.querySelector('summary')?.innerHTML;
+            var pros = xmlDoc.querySelector('pros').innerHTML;
+            var cons = xmlDoc.querySelector('cons').innerHTML;
+            var po = xmlDoc.querySelector('po').textContent.trim();
+            po = po.split('\n')
+                .filter(paragraph => paragraph !== '')
+                .map(paragraph => '<p>' + paragraph.trim() + '</p>')
+                .join("\n");
+
+            var container = document.getElementById('bg-image')
+            container.style.backgroundImage = container.style.backgroundImage.replaceAll('@image', image);
+
+            container = document.getElementById('title');
+            container.innerHTML = container.innerHTML.replaceAll('@title', title)
+
+            container = document.getElementById('page-title');
+            container.innerHTML = container.innerHTML.replaceAll('@title', title)
+
+            container = document.getElementById('rating');
+            container.innerHTML = container.innerHTML.replaceAll('@rating', rating)
+
+            container = document.getElementById('genre');
+            container.innerHTML = container.innerHTML.replaceAll('@genre', genre)
+
+            container = document.getElementById('studio');
+            container.innerHTML = container.innerHTML.replaceAll('@studio', studio)
+
+            container = document.getElementById('releaseDate');
+            container.innerHTML = container.innerHTML.replaceAll('@releaseDate', releaseData)
+
+            container = document.getElementById('summary');
+            container.innerHTML = container.innerHTML.replaceAll('@summary', summary)
+
+            container = document.getElementById('pros-cons');
+            container.innerHTML = container.innerHTML.replaceAll('@pros', pros)
+            container.innerHTML = container.innerHTML.replaceAll('@cons', cons)
+
+            container = document.getElementById('opinion');
+            if (!po.trim()) {
+                container.style.display = "none";
+            } else {
+                container.innerHTML = container.innerHTML.replaceAll('@po', po);
+            }
+        })
+}
+
+
+
+
 function getLinks(path) {
     console.log(path)
     fetch(path)
@@ -99,69 +173,4 @@ function getReviews() {
         });
 }
 
-
-function loadReviewPage() {
-    const params = new URLSearchParams(location.search);
-    var file = params.get('file');
-    console.log("reading file:")
-    console.log(file)
-    fetch(`${file}`)
-        .then(res => {
-            res.ok ? res.text() : Promise.reject('File not found')
-        })
-        .then(xmlText => {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlText, "text/xml");
-
-            var image = xmlDoc.querySelector('image')?.textContent;
-            var title = xmlDoc.querySelector('title')?.textContent;
-            var rating = xmlDoc.querySelector('rating')?.textContent;
-            var genre = xmlDoc.querySelector('genre')?.textContent;
-            var studio = xmlDoc.querySelector('studio')?.textContent;
-            var releaseData = xmlDoc.querySelector('releaseDate')?.textContent;
-            var summary = xmlDoc.querySelector('summary')?.innerHTML;
-            var pros = xmlDoc.querySelector('pros').innerHTML;
-            var cons = xmlDoc.querySelector('cons').innerHTML;
-            var po = xmlDoc.querySelector('po')?.textContent.trim();
-            po = po.split('\n')
-                .filter(paragraph => paragraph !== '')
-                .map(paragraph => '<p>' + paragraph.trim() + '</p>')
-                .join("\n");
-
-            var container = document.getElementById('bg-image')
-            container.style.backgroundImage = container.style.backgroundImage.replaceAll('@image', image);
-
-            container = document.getElementById('title');
-            container.innerHTML = container.innerHTML.replaceAll('@title', title)
-
-            container = document.getElementById('page-title');
-            container.innerHTML = container.innerHTML.replaceAll('@title', title)
-
-            container = document.getElementById('rating');
-            container.innerHTML = container.innerHTML.replaceAll('@rating', rating)
-
-            container = document.getElementById('genre');
-            container.innerHTML = container.innerHTML.replaceAll('@genre', genre)
-
-            container = document.getElementById('studio');
-            container.innerHTML = container.innerHTML.replaceAll('@studio', studio)
-
-            container = document.getElementById('releaseDate');
-            container.innerHTML = container.innerHTML.replaceAll('@releaseDate', releaseData)
-
-            container = document.getElementById('summary');
-            container.innerHTML = container.innerHTML.replaceAll('@summary', summary)
-
-            container = document.getElementById('pros-cons');
-            container.innerHTML = container.innerHTML.replaceAll('@pros', pros)
-            container.innerHTML = container.innerHTML.replaceAll('@cons', cons)
-
-            container = document.getElementById('opinion');
-            if (!po.trim()) {
-                container.style.display = "none";
-            } else {
-                container.innerHTML = container.innerHTML.replaceAll('@po', po);
-            }
-        })
-}
 

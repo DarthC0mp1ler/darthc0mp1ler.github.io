@@ -3,6 +3,7 @@
     <title>Mass Effect™ Legendary Edition</title>
     <rating>9/10</rating>
     <genre>Action RPG</genre>
+    <mainGenre>Role-Play Game</mainGenre>
     <studio>BioWare</studio>
     <releaseDate>May 14, 2021</releaseDate>
     <summary>Truly a legend of RPGs with an interesting plot and fascinating setting. The gameplay feels kind of outdated though. Nevertheless, it doesn’t really affect the game, as personally, for me it was just about the story and deep narrative. Pity, that I didn’t play it earlier.</summary>
@@ -14,6 +15,5 @@
     <cons>
         <li>Uncomfortable, old-style gameplay</li>
     </cons>
-    <po>
-    </po>
+    <po></po>
 </review>
