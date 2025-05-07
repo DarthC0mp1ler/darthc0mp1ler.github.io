@@ -15,6 +15,7 @@
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../../footer-mobile.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="rpg-mobile.css">
     <title>Document</title>
+    <script src="../../readData.js"></script>
 </head>
 
 <body class="bg-image-cover">
@@ -25,8 +26,6 @@
             </div>
             <div class="header-column links-header-column">
                 <div class="header-nav-links">
-                    <!-- <a class="home-link" href="../../reviewMain.html">Genres</a> -->
-                    <!-- <a class="home-link" href="reviewMain.html">Top 100</a> -->
                 </div>
                 <div class="back-header-column">
                     <a class="home-link" href="../../../index.html">DarthC0mp1ler</a>
@@ -40,7 +39,17 @@
         <div class="heading">
             <h1>Role-Play Games Subgenres</h1>
         </div>
-        <div class="sub-genre RPG">
+        <div onclick="toSubGenre('JRPG','../../ReviewData/Role-Play Game/JRPG/index.xml','reviewsList.html')" class="sub-genre JRPG">
+            <div class="filter sub-genre-heading-container">
+                <p class="sub-genre-p">JRPG (Japanese Role-Playing Game) is a subgenre of role-playing games that
+                    originated in Japan and is known for its story-driven gameplay, turn-based combat, and character
+                    progression. These games often feature stylized anime-inspired visuals, party-based mechanics, and
+                    deep narrative elements. JRPGs typically follow a linear storyline with predefined characters and
+                    strong emotional themes.</p>
+                <h1 class="sub-genre-h1">JRPG</h1>
+            </div>
+        </div>
+        <div onclick="toSubGenre('Computer RPG','../../ReviewData/Role-Play Game/CRPG/index.xml','reviewsList.html')" class="sub-genre RPG">
             <div class="filter sub-genre-heading-container">
                 <p class="sub-genre-p">CRPGs are rooted in tabletop role-playing traditions and are known for deep
                     narrative experiences, complex character creation, and tactical or turn-based combat systems. These
@@ -51,7 +60,7 @@
                 <h1 class="sub-genre-h1">COMPUTER ROLE-PLAY GAMES</h1>
             </div>
         </div>
-        <div onclick="location.href='arpg.html'" class="sub-genre ARPG">
+        <div onclick="toSubGenre('Action RPG','../../ReviewData/Role-Play Game/Action RPG/index.xml','reviewsList.html')" class="sub-genre ARPG">
             <div class="filter sub-genre-heading-container">
                 <p class="sub-genre-p">Action RPGs prioritize real-time, fast-paced combat while still incorporating
                     core RPG elements like leveling, skill trees, and equipment customization. The gameplay loop
@@ -62,7 +71,7 @@
                 <h1 class="sub-genre-h1">ACTION RPG</h1>
             </div>
         </div>
-        <div class="sub-genre DC">
+        <div onclick="toSubGenre('Dungeon Crawler','../../ReviewData/Role-Play Game/Dungeon Crawler/index.xml','reviewsList.html')" class="sub-genre DC">
             <div class="filter sub-genre-heading-container">
                 <p class="sub-genre-p">Dungeon Crawlers emphasize exploration of dungeons, often involving grid-based
                     movement and procedurally generated levels. Gameplay is typically centered around combat, loot
@@ -74,7 +83,7 @@
                 <h1 class="sub-genre-h1">DUNGEON CRAWLER</h1>
             </div>
         </div>
-        <div class="sub-genre MMORPG">
+        <div onclick="toSubGenre('MMORPG','../../ReviewData/Role-Play Game/MMORPG/index.xml','reviewsList.html')" class="sub-genre MMORPG">
             <div class="filter sub-genre-heading-container">
                 <p class="sub-genre-p">
                     MMORPGs are large-scale online games where thousands of players share a persistent world, engage in
@@ -95,11 +104,6 @@
             <a class="home-link" href="../../reviewMain.html">Game Reviews</a>
             <a class="home-link" href="../../../index.html">DarthC0mp1ler</a>
         </div>
-        <!-- <div class="footer-column">
-            <h2>Navigation</h2> -->
-            <!-- <a class="home-link" href="reviewMain.html">Genres</a> -->
-            <!-- <a class="home-link" href="reviewMain.html">Top 100</a> -->
-        <!-- </div> -->
     </footer>
 </body>
 

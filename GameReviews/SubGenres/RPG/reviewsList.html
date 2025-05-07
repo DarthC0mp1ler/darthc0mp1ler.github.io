@@ -12,17 +12,17 @@
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../../genresPanel-mobile.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../subgenres-mobile.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../../footer-mobile.css">
-    <title>Document</title>
+    <title>Reviews not found</title>
 </head>
 <script src="../../readData.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // getLinks('../../ReviewData/RolePlay_Games/Action_RPG/');
-        getReviews('../../ReviewData/RolePlay_Games/Action RPG/index.xml');
+        getReviews();
     });
 </script>
 
 <body class="bg-image-cover">
+    <div id="page-data" data-value="../../ReviewData/Role-Play Game/Action RPG/index.xml"></div>
     <header id="hd">
         <nav>
             <div class="header-column main-header-column">
@@ -31,8 +31,6 @@
             <div class="header-column links-header-column">
                 <div class="header-nav-links">
                     <a class="home-link" href="../../reviewMain.html">Genres</a>
-                    <a class="home-link" href="rpg.html">RPG</a>
-                    <!-- <a class="home-link" href="reviewMain.html">Top 100</a> -->
                 </div>
                 <div class="back-header-column">
                     <a class="home-link" href="../../../index.html">DarthC0mp1ler</a>
@@ -43,37 +41,19 @@
     </header>
     <div class="full-width-row">
         <div class="flex-container-full-width centered-container container-color-gradient-left">
-            <h1 class="subgenre-heading">Action RPG Titles</h1>
+            <h1 id="page-heading" class="subgenre-heading">Review titles did not load</h1>
+            <h1 id="no-reviews" style="display: block; text-align: center;">No Reviews for this genre yet :(</h1>
             <div id="titles" class="titles">
-                <!-- <div class="title"
-                    style="background-image: url('https://image.api.playstation.com/vulcan/img/rnd/202111/0506/hcFeWRVGHYK72uOw6Mn6f4Ms.jpg?w=780&thumb=false');">
-                    <div class="title-gradient">
-                        <h1>Elden Ring</h1>
-                    </div>
-                </div>
-                <div  class="title"
-                    style="background-image: url('@image');">
-                    <div class="title-gradient">
-                        <h1>@title</h1>
-                    </div>
-                </div> -->
-
+                
             </div>
         </div>
     </div>
-
-
     <footer>
         <div class="footer-column">
             <h2>Deigned by DarthC0mp1ler</h2>
             <a class="home-link" href="../../reviewMain.html">Game Reviews</a>
             <a class="home-link" href="../../../index.html">DarthC0mp1ler</a>
         </div>
-        <!-- <div class="footer-column">
-            <h2>Navigation</h2> -->
-            <!-- <a class="home-link" href="reviewMain.html">Genres</a> -->
-            <!-- <a class="home-link" href="reviewMain.html">Top 100</a> -->
-        <!-- </div> -->
     </footer>
 </body>
 
