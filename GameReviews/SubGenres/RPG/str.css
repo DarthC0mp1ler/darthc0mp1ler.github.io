@@ -1,0 +1,40 @@
+.FX {
+    background-image: url('https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/8930/ss_84ee7ab3b0148a260359f8d5a78a2ab9033aa695.jpg?t=1724341158');
+    background-position: 0 -300px;
+    background-size: cover;
+}
+
+.FX:hover {
+    background-position: 0 -310px;
+}
+
+.GSW {
+    background-image: url('https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1158310/ss_950a6f6dc67f521877345db6d2c0cebb27ddc528.jpg?t=1745933101');
+    background-position: center -150px;
+    background-size: cover;
+}
+
+.GSW:hover {
+    background-position: center -160px;
+}
+
+
+.MOBA {
+    background-image: url('https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react//home/battle_mobile.jpg');
+    background-position: 0 -1100px;
+    background-size: cover;
+}
+
+.MOBA:hover {
+    background-position: 0 -1110px;
+}
+
+.RTS {
+    background-image: url('https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1466860/ss_2ae5b5a2a779c31e3acae486ec359b0d9087bc8c.jpg?t=1744749573');
+    background-position: 0 -300px;
+    background-size: 100% 350%;
+}
+
+.RTS:hover {
+    background-position: 0 -320px;
+}

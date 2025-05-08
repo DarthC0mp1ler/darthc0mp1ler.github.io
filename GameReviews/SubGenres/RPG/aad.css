@@ -1,0 +1,48 @@
+.Action-Adventure {
+    background-image: url('https://www.kojimaproductions.jp/sites/default/files/2021-09/tc_DSPS4.jpg');
+    background-position: 0 -50px;
+    background-size: 100% 350%;
+}
+
+.Action-Adventure:hover {
+    background-position: 0 -60px;
+}
+
+.HackSlash {
+    background-image: url('https://gmedia.playstation.com/is/image/SIEPDC/god-of-war-ragnarok-hero-banner-desktop-01-en-07sep21?$3200px$');
+    background-position: center -50px;
+    background-size: cover 350%;
+}
+
+.HackSlash:hover {
+    background-position: center -60px;
+}
+
+
+.Survival {
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/892970/ss_f4ea4f0f93cc8b38042f6d5916413da185ec221c.jpg?t=1738051073');
+    background-position: 0 -500px;
+    background-size: 100% 350%;
+}
+
+.Survival:hover {
+    background-position: 0 -520px;
+}
+
+.SurvivalHorror {
+    background-image: url('https://dyinglightgame.com/img/screenshots/dl1/3.jpg');
+    background-position: center -250px;
+}
+
+.SurvivalHorror:hover {
+    background-position: center -260px;
+}
+
+.Stealth {
+    background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202009/2915/bhiihnx1zPu3thnYo0t4TcGr.png');
+    background-position: 75% -300px;
+}
+
+.Stealth:hover {
+    background-position: 75% -310px;
+}

@@ -1,0 +1,30 @@
+.CM {
+    background-image: url('https://www.frostpunkgame.com/wp-content/uploads/2019/10/Feature-bg-2.jpg');
+    background-position: 0 -800px;
+    background-size: cover 100%;
+}
+
+.CM:hover {
+    background-position: 0 -810px;
+}
+
+.LS {
+    background-image: url('https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1222670/ss_537683e5e29c2d6d02c64aa7321dcb26166f7d82.jpg?t=1746119045');
+    background-position: center -150px;
+    background-size: cover;
+}
+
+.LS:hover {
+    background-position: center -160px;
+}
+
+
+.MS {
+    background-image: url('https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/413150/ss_b887651a93b0525739049eb4194f633de2df75be.jpg?t=1711128146');
+    background-position: 0 -500px;
+    background-size: 100% 350%;
+}
+
+.MS:hover {
+    background-position: 0 -520px;
+}

@@ -1,0 +1,30 @@
+.Adventure {
+    background-image: url('https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1538475612_5bb3465d01ab50.40026951.jpg');
+    background-position: 0 -120px;
+    background-size: 100% 350%;
+}
+
+.Adventure:hover {
+    background-position: 0 -130px;
+}
+
+.Puzzle {
+    background-image: url('https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/620/ss_6a4f5afdaa98402de9cf0b59fed27bab3256a6f4.jpg?t=1745363004');
+    background-position: center -150px;
+    background-size: cover;
+}
+
+.Puzzle:hover {
+    background-position: center -170px;
+}
+
+
+.VN {
+    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/8c2fd5a5e254ac095ae8ab80c0c3a6e4cd863a88476c49769e9de03f6b4a3b7f.jpg');
+    background-position: 0 -200px;
+    background-size: cover;
+}
+
+.VN:hover {
+    background-position: 0 -220px;
+}
