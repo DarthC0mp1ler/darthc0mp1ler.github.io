@@ -16,9 +16,24 @@
 </head>
 <script src="../../readData.js"></script>
 <script>
+    const images = [
+        'url("https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/489830/ss_73c1a0bb7e1720c8a1847186c3ddd837d3ca7a8d.1920x1080.jpg?t=1721923149")',
+        'url("https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1771300/ss_77abcbc203685b38a50a8cee383bd7f47488f090.jpg?t=1743170749")',
+        'url("https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/990080/ss_725bf58485beb4aa37a3a69c1e2baa69bf3e4653.jpg?t=1744736444")',
+    ];
+
     document.addEventListener("DOMContentLoaded", function () {
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        document.body.style.backgroundImage = randomImage;
+
         getReviews();
     });
+
+    
+
+    
+
 </script>
 
 <body class="bg-image-cover">

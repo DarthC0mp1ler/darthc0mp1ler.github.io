@@ -1,0 +1,65 @@
+.ACTION {
+    background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202308/1519/95cce955dc59d04e2ea5ab624a823ace14e9c5f7e24dfb8f.png');
+    background-position: 0 -50px;
+    background-size: 100% 350%;
+}
+
+.ACTION:hover {
+    background-position: 0 -60px;
+}
+
+.BATTLE_ROYALE {
+    background-image: url('https://content.bloodhunt.com/public/2022-07/og_summer.png');
+    background-position: 0 -250px;
+    background-size: 100% 350%;
+}
+
+.BATTLE_ROYALE:hover {
+    background-position: 0 -270px;
+}
+
+
+.FIGHTING {
+    background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202402/2815/ceb3d0a4c888e07d138a79e907483a2f610a64c08bb1810b.jpg');
+    background-position: 0 -200px;
+    background-size: 100% 350%;
+}
+
+.FIGHTING:hover {
+    background-position: 0 -220px;
+}
+
+.PLATFORMER {
+    background-image: url('https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_GhostrunnerNeonPack_OneMoreLevel3DRealms_DLC_S1_2560x1440-ccf75491dc97a803241541bce020baec');
+    background-position: center -450px;
+}
+
+.PLATFORMER:hover {
+    background-position: center -460px;
+}
+
+.SHOOTER {
+    background-image: url('https://cdn2.unrealengine.com/metroexodus-pcenhancededition-s1-2560x1440-26d6d2b0fe2a.jpg');
+    background-position: center -600px;
+}
+
+.SHOOTER:hover {
+    background-position: center -610px;
+}
+
+.STEALTH {
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3474740/4a45c3de5e9fb455a2a3c8e9070f5539376289be/ss_4a45c3de5e9fb455a2a3c8e9070f5539376289be.jpg?t=1744737786');
+    background-position: center -10px;
+}
+
+.STEALTH:hover {
+    background-position: center -30px;
+}
+.SURVIVAL {
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3474740/4a45c3de5e9fb455a2a3c8e9070f5539376289be/ss_4a45c3de5e9fb455a2a3c8e9070f5539376289be.jpg?t=1744737786');
+    background-position: center -10px;
+}
+
+.SURVIVAL:hover {
+    background-position: center -30px;
+}

@@ -68,7 +68,7 @@ header>nav {
 }
 
 .bg-image-cover {
-    background-image: url('https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/489830/ss_73c1a0bb7e1720c8a1847186c3ddd837d3ca7a8d.1920x1080.jpg?t=1721923149');
+    /* background-image: url('https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/489830/ss_73c1a0bb7e1720c8a1847186c3ddd837d3ca7a8d.1920x1080.jpg?t=1721923149'); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
