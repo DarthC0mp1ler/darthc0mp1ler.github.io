@@ -23,6 +23,7 @@ function loadReviewPage() {
             var title = data[1][0];
             var rating = data[1][1];
             var genre = data[1][2] + ', ' + data[1][3];
+            var mode = data[1][11];
             var studio = data[1][4];
             var releaseData = data[1][5];
             var image = data[1][6];
@@ -46,6 +47,8 @@ function loadReviewPage() {
 
             container = document.getElementById('genre');
             container.innerHTML = container.innerHTML.replaceAll('@genre', genre)
+            container = document.getElementById('mode');
+            container.innerHTML = container.innerHTML.replaceAll('@mode', mode)
 
             container = document.getElementById('studio');
             container.innerHTML = container.innerHTML.replaceAll('@studio', studio)
