@@ -1,43 +1,37 @@
-
-function toSubGenre(name, path, fileurl) {
-    const url = `${encodeURIComponent(fileurl)}?name=${encodeURIComponent(name)}&path=${encodeURIComponent(path)}`
+//link to download from google images
+//https://drive.google.com/thumbnail?id=1IckH-B9XVVx1ZoyoNQTHMTSrgfWoHB5M&sz=w10000
+function toSubGenre(name, path, tabName) {
+    const url = `reviewsList.html?name=${encodeURIComponent(name)}&path=${encodeURIComponent(path)}&tab=${encodeURIComponent(tabName)}`;
     window.location.href = url;
 }
-
 
 function loadReviewPage() {
     const params = new URLSearchParams(location.search);
     var file = params.get('file');
-    console.log("reading file:")
-    console.log(file)
-    fetch(`${file}`)
+    const path = `https://docs.google.com/spreadsheets/d/${file}/export?format=csv`;
+    fetch(`${path}`)
         .then(res => {
             if(res.ok){
                 return res.text();
             }else{
-                console.log("error in loading file");
+                document.getElementById('msg').textContent = "403 Forbidden";
             }
-            //res.ok ? res.text() : Promise.reject('File not found')
         })
-        .then(xmlText => {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+        .then(csvText =>{
+            const data = parseCSV(csvText);
 
-            var image = xmlDoc.querySelector('image')?.textContent;
-            var title = xmlDoc.querySelector('title')?.textContent;
-            var rating = xmlDoc.querySelector('rating')?.textContent;
-            var genre = xmlDoc.querySelector('genre')?.textContent;
-            var studio = xmlDoc.querySelector('studio')?.textContent;
-            var releaseData = xmlDoc.querySelector('releaseDate')?.textContent;
-            var summary = xmlDoc.querySelector('summary')?.innerHTML;
-            var pros = xmlDoc.querySelector('pros').innerHTML;
-            var cons = xmlDoc.querySelector('cons').innerHTML;
-            var po = xmlDoc.querySelector('po').textContent.trim();
-            po = po.split('\n')
-                .filter(paragraph => paragraph !== '')
-                .map(paragraph => '<p>' + paragraph.trim() + '</p>')
-                .join("\n");
-
+            var title = data[1][0];
+            var rating = data[1][1];
+            var genre = data[1][2] + ', ' + data[1][3];
+            var studio = data[1][4];
+            var releaseData = data[1][5];
+            var image = data[1][6];
+            var summary = getTextFromColumn(9,data);
+            var pros =  getTextFromColumn(7,data,true);
+            var cons =  getTextFromColumn(8,data,true);
+            var po = getTextFromColumn(10,data);
+            
+            
             var container = document.getElementById('bg-image')
             container.style.backgroundImage = container.style.backgroundImage.replaceAll('@image', image);
 
@@ -72,105 +66,165 @@ function loadReviewPage() {
             } else {
                 container.innerHTML = container.innerHTML.replaceAll('@po', po);
             }
-        })
-}
-
-
-
-
-function getLinks(path) {
-    console.log(path)
-    fetch(path)
-        .then(res => res.text())
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const links = Array.from(doc.querySelectorAll('a'))
-                .map(link => link.getAttribute('href'))
-                .filter(href => !href.endsWith('index.xml'))
-                .filter(href => href.endsWith('.xml'));
-            console.log(links);
-
-            var element = document.getElementById("titles");
-            links.forEach(link => {
-                const a = document.createElement('a');
-                a.href = `../../reviewTemplate.html?file=${encodeURIComponent(link)}`;
-                a.textContent = link
-                    .split('review_')[1]
-                    .split('.xml')[0]
-                    .replaceAll('_', ' ')
-                    .replaceAll('%20', ' ')
-                    .replaceAll('%26', '&')
-                    .replaceAll(/\s+/g, ' ');
-                a.classList.add('home-link');
-                element.appendChild(a);
-            })
-
-
+            document.getElementById('loading').style.display = "none";
+            document.getElementById('review').style.display = "block";
+            const backLink = document.getElementById('back');
+            backLink.textContent = "Back to " + data[1][3];
+            backLink.href = `SubGenres/RPG/reviewsList.html?name=${encodeURIComponent(data[1][3])}&path=1vyRGZTadhaD-Zv3HwGmkpO4CIkfMm2xVgvHUJcwUZ1I&tab=${encodeURIComponent(genreShort[data[1][2]]+data[1][3])}`
         });
 }
 
+
+
+
 function getReviews() {
     const params = new URLSearchParams(location.search);
-    var path = params.get('path');
+    
+    const fileId = params.get('path');
+    const sheetName = params.get('tab');
+    const path = `https://docs.google.com/spreadsheets/d/${fileId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
     var title = params.get('name');
     document.getElementById('page-heading').innerText = title;
     document.title = title;
 
-    //let path = document.getElementById("page-data").dataset.value;
     console.log(path)
     fetch(path)
         .then(res => {
-            //res.ok ? res.text() : Promise.reject('File not found')
             if(!res.ok){
+                document.getElementById("loading").style.display = 'none';
                 document.getElementById("no-reviews").style.display = 'block';
                 return Promise.reject('File not found');
             }else {
                 return res.text();
             }
             
-        })
-        .then(xmlText => {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlText, "application/xml");
-
-            const reviewElements = xmlDoc.querySelectorAll('review');
-            console.log(reviewElements.length);
-
-            if (xmlDoc.querySelector("parsererror")) {
-                console.error("Error parsing XML:", xmlDoc.querySelector("parsererror").textContent);
+        }).then(csvText => {
+            if(csvText === "NONE"){
+                return;
             }
-            const folderPath = path.substring(0, path.lastIndexOf("/") + 1);
-            const container = document.getElementById('titles');
+            const lines = csvText.split('\n');
 
-            
-
-            if (reviewElements.length === 0) {
+            document.getElementById("loading").style.display = 'none';
+            if (lines.length <= 1) {
                 document.getElementById("no-reviews").style.display = 'block';
             }else{
                 document.getElementById("no-reviews").style.display = 'none';
             }
 
-            for (const review of reviewElements) {
-                let file = folderPath.replaceAll('../', '') + review.querySelector('file')?.textContent.trim();
-                let title = review.querySelector('title')?.textContent.trim();
-                let image = review.querySelector('image')?.textContent.trim();
-
-                const div = document.createElement('div');
-                div.className = 'title';
-                div.onclick = function () {
-                    location.href = `../../reviewTemplate.html?file=${encodeURIComponent(file)}`;
-                };
-                div.style.backgroundImage = `url('${image}')`;
-                div.innerHTML = `
-                    <div class="title-gradient">
-                        <h1>${title}</h1>
-                    </div>
-                    `;
-
-                container.appendChild(div);
+            for(let i = 1; i < lines.length; i++){
+                createReviewElement(lines[i]);
             }
         });
 }
 
+function createReviewElement(line){
+    const elements = line.split(",");
+    let title = elements[0].slice(1, -1);
+    let file = elements[1].slice(1, -1);
+    let image = elements[2].slice(1, -1);
+    console.log(title);
 
+    const container = document.getElementById('titles');
+    const div = document.createElement('div');
+    div.className = 'title';
+    div.onclick = function () {
+        location.href = `../../reviewTemplate.html?file=${encodeURIComponent(file)}`;
+    };
+    div.style.backgroundImage = `url('${image}')`;
+    div.innerHTML = `
+        <div class="title-gradient">
+            <h1>${title}</h1>
+        </div>
+        `;
+
+    container.appendChild(div);
+}
+
+
+function isCellEmpty(cell) {
+  return cell === null || cell === undefined || cell.toString().trim() === "";
+}
+
+function getTextFromColumn(columnNumber, data, isList = false){
+    if(columnNumber < 0 || columnNumber >= data[0].length){
+        return "Nothing found here.";
+    }
+    var result = "";
+    for(var i = 1; i < data.length; i++){
+        if(!isCellEmpty(data[i][columnNumber])){
+            if(isList){
+                result += "<li>";
+                result += data[i][columnNumber];
+                result += "</li>";
+            }
+            else{
+                result += "<p>";
+                result += data[i][columnNumber];
+                result += "</p>";
+            }
+        }
+    }
+    return result;
+}
+
+function parseCSV(csvText) {
+  const rows = [];
+  let currentRow = [];
+  let currentCell = '';
+  let insideQuotes = false;
+
+  for (let i = 0; i < csvText.length; i++) {
+    const char = csvText[i];
+    const nextChar = csvText[i + 1];
+
+    if (insideQuotes) {
+      if (char === '"' && nextChar === '"') {
+        // Escaped quote, add one quote to cell
+        currentCell += '"';
+        i++; // skip the next quote
+      } else if (char === '"') {
+        // Closing quote
+        insideQuotes = false;
+      } else {
+        currentCell += char;
+      }
+    } else {
+      if (char === '"') {
+        // Opening quote
+        insideQuotes = true;
+      } else if (char === ',') {
+        // Cell finished
+        currentRow.push(currentCell);
+        currentCell = '';
+      } else if (char === '\n') {
+        // Row finished
+        currentRow.push(currentCell);
+        rows.push(currentRow);
+        currentRow = [];
+        currentCell = '';
+      } else if (char === '\r') {
+        // Ignore carriage return (\r)
+        continue;
+      } else {
+        currentCell += char;
+      }
+    }
+  }
+
+  // Add the last cell/row if any
+  if (currentCell !== '' || currentRow.length > 0) {
+    currentRow.push(currentCell);
+    rows.push(currentRow);
+  }
+
+  return rows;
+}
+
+const genreShort = {
+  "Action" : "A_",
+  "Action-Adventure" : "AA_",
+  "Adventure" : "AD_",
+  "Role-Play Game" : "RPG_",
+  "Simulation" : "SIM_",
+  "Strategy" : "STR_"
+}

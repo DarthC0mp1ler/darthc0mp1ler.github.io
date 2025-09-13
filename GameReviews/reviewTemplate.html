@@ -17,7 +17,7 @@
     </script>
 </head>
 
-<body id="bg-image" class="bg-image-cover" style="background-image: url('@image'); background-position: center;">
+<body id="bg-image" class="bg-image-cover" style="background-color:black; background-image: url('@image'); background-position: center;">
     <header id="hd">
         <nav>
             <div class="header-column main-header-column">
@@ -25,8 +25,7 @@
             </div>
             <div class="header-column links-header-column">
                 <div class="header-nav-links">
-                    <!-- <a class="home-link" href="reviewMain.html">Genres</a> -->
-                    <!-- <a class="home-link" href="reviewIndex.html">Top 100</a> -->
+                    <a id="back" class="home-link" href=""></a>
                 </div>
                 <div class="back-header-column">
                     <a class="home-link" href="../index.html">DarthC0mp1ler</a>
@@ -35,20 +34,19 @@
 
         </nav>
     </header>
-    <!-- <div style="height: 30vh;"></div> -->
-    <div class="reviews-width-row container-color-gradient-left">
-        <div class="reviews-flex-container half-width" >
+    <div id="loading" class="reviews-flex-container" style="height:70vh; justify-content: center;">
+        <h1 id="msg" style="text-align: center;">Loading...</h1>
+    </div>
+    <div id="review" class="reviews-width-row container-color-gradient-left" style="display:none">
+        <div class="reviews-flex-container half-width">
             <div class="flex">
                 <h1 id="title" class="main-header center">@title</h1>
                 <h1 id="rating" class="main-header center" style="color:goldenrod">@rating</h1>
             </div>
-
             <p id="genre"><b>Genre:</b> @genre</p>
             <p id="studio"><b>Studio:</b> @studio</p>
             <p id="releaseDate"><b>Release date:</b> @releaseDate</p>
 
-        <!-- </div>
-        <div class="reviews-flex-container"> -->
             <div id="pros-cons">
                 <b>Pros</b>
                 <ul>
