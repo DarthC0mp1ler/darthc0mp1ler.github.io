@@ -142,7 +142,9 @@ function createReviewElement(line){
             <h1>${title}</h1>
             <h1 style="color:goldenrod">${rating}</h1>
             `;
-
+    if(rating.split("/")[0] === "10"){
+        div.style.boxShadow = "0px 0px 30px rgba(255, 255, 255, 1)";
+    }
     container.appendChild(div);
 }
 
