@@ -28,3 +28,14 @@
 .VN:hover {
     background-position: 0 -220px;
 }
+
+
+.Interactive-Movie {
+    background-image: url('https://cdn2.unrealengine.com/until-dawn-survival-guide-how-to-keep-everyone-alive-and-unlock-the-best-ending-2841x1598-3402cef5bb93.jpg');
+    background-position: 0 -100px;
+    background-size: cover;
+}
+
+.Interactive-Movie:hover {
+    background-position: 0 -120px;
+}
