@@ -118,7 +118,7 @@ function onFilter() {
                 }
             }
         } else {
-            if (block.dataset.genre.includes(genre)) {
+            if (block.dataset.genre.startsWith(genre)) {
                 if (value === "") {
                     block.style.display = "block";
                 } else {
