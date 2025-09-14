@@ -121,24 +121,27 @@ function getReviews() {
 }
 
 function createReviewElement(line){
-    const elements = line.split(",");
-    let title = elements[0].slice(1, -1);
-    let file = elements[1].slice(1, -1);
-    let image = elements[2].slice(1, -1);
-    console.log(title);
+    const elements = parseCSV(line)[0];
+    let title = elements[0];
+    let file = elements[1];
+    let image = elements[2];
+    let rating = elements[3];
+    let date = elements[4];
 
-    const container = document.getElementById('titles');
+    const container = document.getElementById('review-titles');
     const div = document.createElement('div');
-    div.className = 'title';
+    div.className = 'rls-item';
+    div.dataset.rating = rating;
+    div.dataset.title = title;
+    div.dataset.date = date;
     div.onclick = function () {
         location.href = `../../reviewTemplate.html?file=${encodeURIComponent(file)}`;
     };
     div.style.backgroundImage = `url('${image}')`;
     div.innerHTML = `
-        <div class="title-gradient">
             <h1>${title}</h1>
-        </div>
-        `;
+            <h1 style="color:goldenrod">${rating}</h1>
+            `;
 
     container.appendChild(div);
 }
@@ -230,4 +233,21 @@ const genreShort = {
   "Role-Play Game" : "RPG_",
   "Simulation" : "SIM_",
   "Strategy" : "STR_"
+}
+
+function onFilter() {
+    const container = document.getElementById('review-titles');
+    const titles = container.children;
+    const value = document.getElementById('filter-text').value.trim().toLowerCase();
+    Array.from(titles).forEach(block => {
+            if (value === "") {
+                block.style.display = "block";
+            } else {
+                if (block.dataset.title.toLowerCase().includes(value)) {
+                    block.style.display = "block";
+                } else {
+                    block.style.display = "none";
+                }
+            }
+    });
 }

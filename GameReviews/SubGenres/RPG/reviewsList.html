@@ -8,13 +8,17 @@
     <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="../../genresPanel.css">
     <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="../subgenres.css">
     <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="../../footer.css">
+    <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="../../mainReviewList.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../../reviews-mobile.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../../genresPanel-mobile.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../subgenres-mobile.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../../footer-mobile.css">
+    <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="../../mainReviewList-mobile.css">
+
     <title>Reviews not found</title>
 </head>
 <script src="../../readData.js"></script>
+<script src="../../sortDiv.js"></script>
 <script>
     const images = [
         'url("https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/489830/ss_73c1a0bb7e1720c8a1847186c3ddd837d3ca7a8d.1920x1080.jpg?t=1721923149")',
@@ -53,12 +57,34 @@
         </nav>
     </header>
     <div class="full-width-row">
+        
         <div class="flex-container-full-width centered-container container-color-gradient-left">
             <h1 id="page-heading" class="subgenre-heading">Review titles did not load</h1>
             <h1 id="loading" style="display: block; text-align: center;">Loading...</h1>
+            <div class="rls-bottom-separator control-box">
+            <div class = "control-box-col">
+                <label>Sort by:</label>
+                <div class="rls-mobile-flex">
+                    <button class="rls-button" onclick="sortDivChildren('title',true)">A-Z↓</button>
+                    <button class="rls-button" onclick="sortDivChildren('title',false)">A-Z↑</button>
+                    <button class="rls-button" onclick="sortDivChildren('rating',false)">Rating↓</button>
+                    <button class="rls-button" onclick="sortDivChildren('rating',true)">Rating↑</button>
+                    <button class="rls-button" onclick="sortDivChildren('date',true)">Date↑</button>
+                    <button class="rls-button" onclick="sortDivChildren('date',false)">Date↓</button>
+                </div>
+            </div>
+            <div class = "control-box-col">
+                <div>
+                    <label>Filter by title:</label><br>
+                    <input id="filter-text" type="text" class="rls-input" onchange="onFilter();"
+                        onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();">
+
+                </div>
+            </div>
+        </div>
             <h1 id="no-reviews" style="display: none; text-align: center;">No Reviews for this genre yet :(</h1>
-            <div id="titles" class="titles">
-                
+            <div id="review-titles"  class="rls-titles">
+
             </div>
         </div>
     </div>

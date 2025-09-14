@@ -5,11 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="reviews.css">
+    <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="mainReviewList.css">
     <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="genresPanel.css">
     <link rel="stylesheet" media="screen and (min-width: 901px)" type="text/css" href="footer.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="reviews-mobile.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="genresPanel-mobile.css">
     <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="footer-mobile.css">
+    <link rel="stylesheet" media="screen and (max-width: 901px)" type="text/css" href="mainReviewList-mobile.css">
+    <script src="allReviews.js"></script>
+    <script src="sortDiv.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            loadReviews()
+        });
+    </script>
     <title>Genres - Game Reviews</title>
 </head>
 
@@ -34,7 +43,7 @@
     <div class="on-top">
         <h1>DISCOVER DIFFERENT GENRES!</h1>
     </div>
-    <div  class="genres-panel">
+    <div class="genres-panel">
         <div onclick="location.href='SubGenres/RPG/action.html'" class="genre genre-ac">
             <div class="filter heading-container">
                 <h1 class="genre-h1">Actions</h1>
@@ -54,7 +63,7 @@
                     a character who fights enemies, navigates environments, and interacts with the world to uncover
                     narrative elements or complete objectives. These games offer a balance between combat and thoughtful
                     exploration, often with a strong focus on character progression or open-world design. They tend to
-                    emphasize immersion and atmosphere while maintaining engaging moment-to-moment gameplay.  </p>
+                    emphasize immersion and atmosphere while maintaining engaging moment-to-moment gameplay. </p>
             </div>
         </div>
         <div onclick="location.href='SubGenres/RPG/ad.html'" class="genre genre-ad">
@@ -102,7 +111,48 @@
             </div>
         </div>
     </div>
+    <br><br><br><br><br>
+    <div class="rls-review-part">
+        <h1 style="text-align: center; font-size: 3em;" class="rls-bottom-separator">ALL REVIEWS</h1>
+        <div class="rls-bottom-separator control-box">
+            <div class = "control-box-col">
+                <label>Sort by:</label>
+                <div class="rls-mobile-flex">
+                    <button class="rls-button" onclick="sortDivChildren('title',true)">A-Z↓</button>
+                    <button class="rls-button" onclick="sortDivChildren('title',false)">A-Z↑</button>
+                    <button class="rls-button" onclick="sortDivChildren('rating',false)">Rating↓</button>
+                    <button class="rls-button" onclick="sortDivChildren('rating',true)">Rating↑</button>
+                    <button class="rls-button" onclick="sortDivChildren('date',true)">Date↑</button>
+                    <button class="rls-button" onclick="sortDivChildren('date',false)">Date↓</button>
+                </div>
+            </div>
+            <div class = "control-box-col">
+                <div>
+                    <label>Filter by title:</label><br>
+                    <input id="filter-text" type="text" class="rls-input" onchange="onFilter();"
+                        onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();">
 
+                </div>
+                <div>
+                    <label>Select Genre:</label>
+                    <br>
+                    <select onchange="onFilter()" class="rls-select" id="genre" name="genre">
+                        <option value="NONE">Select</option>
+                        <option value="A_">Action</option>
+                        <option value="AA_">Action-Adventure</option>
+                        <option value="AD_">Adventure</option>
+                        <option value="RPG_">Role-Play Game</option>
+                        <option value="SIM_">Simulation</option>
+                        <option value="STR_">Strategy</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="flex-container-full-width" style=" padding: 0; margin: 0;">
+            <div id="review-titles" style="width:100%" class="rls-titles">
+            </div>
+        </div>
+    </div>
     <footer>
         <div class="footer-column">
             <h2>Deigned by DarthC0mp1ler</h2>
