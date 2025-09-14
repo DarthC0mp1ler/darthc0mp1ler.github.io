@@ -22,13 +22,13 @@ const tabs = [
     "RPG_Dungeon Crawler",
     "RPG_JRPG",
     "RPG_MMORPG",
-    "S_City Management",
-    "S_Life Simulation",
-    "S_Management Simulation",
-    "ST_4X",
-    "ST_Grand Strategy Wargame",
-    "ST_MOBA",
-    "ST_RTS"
+    "SIM_City Management",
+    "SIM_Life Simulation",
+    "SIM_Management Simulation",
+    "STR_4X",
+    "STR_Grand Strategy Wargame",
+    "STR_MOBA",
+    "STR_RTS"
 ];
 
 const genreShort = {
