@@ -16,6 +16,7 @@ const tabs = [
     "AD_Adventure",
     "AD_Puzzle",
     "AD_Visual Novel",
+    "AD_Interactive Movie",
     "RPG_Action RPG",
     "RPG_CRPG",
     "RPG_Dungeon Crawler",
