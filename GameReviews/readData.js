@@ -87,6 +87,7 @@ function loadReviewPage() {
             steamReview += getBPFromColumn(8,data,true);
             steamReview +="\n";
             steamReview += getBPFromColumn(9,data);
+            steamReview +="\n";
 
            
         });
