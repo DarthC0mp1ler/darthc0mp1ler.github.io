@@ -5,6 +5,8 @@ function toSubGenre(name, path, tabName) {
     window.location.href = url;
 }
 
+ let  steamReview;
+
 function loadReviewPage() {
     const params = new URLSearchParams(location.search);
     var file = params.get('file');
@@ -74,9 +76,27 @@ function loadReviewPage() {
             const backLink = document.getElementById('back');
             backLink.textContent = "Back to " + data[1][3];
             backLink.href = `SubGenres/RPG/reviewsList.html?name=${encodeURIComponent(data[1][3])}&path=1vyRGZTadhaD-Zv3HwGmkpO4CIkfMm2xVgvHUJcwUZ1I&tab=${encodeURIComponent(genreShort[data[1][2]]+data[1][3])}`
+
+            const steamReviewLink = document.getElementById('steam-review');
+            
+            steamReview = "[h1]" + rating + "[/h1]\n";
+            steamReview +="\n"
+            steamReview += "[b]Pros:[/b]\n";
+            steamReview += getBPFromColumn(7,data,true);
+            steamReview += "[b]Cons:[/b]\n";
+            steamReview += getBPFromColumn(8,data,true);
+            steamReview +="\n";
+            steamReview += getBPFromColumn(9,data);
+
+           
         });
 }
 
+function openSteamReview(){
+    const win = window.open("", "_blank");
+    win.document.body.innerHTML = "<pre></pre>";
+    win.document.querySelector("pre").textContent = steamReview;
+}
 
 
 
@@ -169,6 +189,27 @@ function getTextFromColumn(columnNumber, data, isList = false){
                 result += "<p>";
                 result += data[i][columnNumber];
                 result += "</p>";
+            }
+        }
+    }
+    return result;
+}
+
+function getBPFromColumn(columnNumber, data, isList = false){
+    if(columnNumber < 0 || columnNumber >= data[0].length){
+        return "Nothing found here.";
+    }
+    var result = "";
+    for(var i = 1; i < data.length; i++){
+        if(!isCellEmpty(data[i][columnNumber])){
+            if(isList){
+                result += "+";
+                result += data[i][columnNumber];
+                result += "\n"
+            }
+            else{
+                result += data[i][columnNumber];
+                result += "\n"
             }
         }
     }

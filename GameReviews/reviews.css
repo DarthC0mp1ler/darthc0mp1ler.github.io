@@ -273,6 +273,12 @@ header>nav {
     display: none;
 }
 
+.link-no-style{
+    text-decoration: none;
+    color:white;   
+    cursor:text
+}
+
 /*Image slider*/
 /* @keyframes fade{
 0%{
